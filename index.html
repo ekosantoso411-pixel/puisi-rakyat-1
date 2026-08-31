@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran: Puisi Rakyat Kelas 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0fdfa; /* Light teal background */
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-hover {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.6); }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s ease-in-out infinite;
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-stagger {
+            opacity: 0;
+            animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* Hide scrollbar for tab navigation on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-slate-800 h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white shadow-lg sticky top-0 z-20">
+        <div class="max-w-6xl mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2 md:p-3 rounded-full flex items-center justify-center shadow-md animate-float">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxs5G5zI4pgHrPStO3xvwCShPVwMjkSLqn5bMsmPH9UDhuhs65NZZotNS35HhmsT2eDT7jRwzmi8K_yAZR79Vk_1OVl8LhyphenhyphenC2XiA7R_6gcIfIkprlo2juXnLQfv7TLWraGdA7V5hBa6kYN08ExLTFENXs5P9YdY9TRPRCarlB3EDBIz-wax1GoNeiujUX9/s1600/LOGO%20BRAND%20FIX%20PNG.png" alt="Logo" class="h-12 w-12 md:h-16 md:w-16 object-contain">
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold">Puisi Rakyat</h1>
+                    <p class="text-sm md:text-base text-teal-100 mt-1">Bahasa Indonesia - Kelas VII SMP</p>
+                </div>
+            </div>
+            <div class="mt-4 md:mt-0 text-sm md:text-right bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
+                <p class="text-teal-100">Dikembangkan oleh:</p>
+                <p class="font-bold text-white tracking-wide">Eko Santoso</p>
+            </div>
+        </div>
+        
+        <nav class="bg-white/10 backdrop-blur-md border-t border-white/20">
+            <div class="max-w-6xl mx-auto px-2">
+                <ul class="flex overflow-x-auto no-scrollbar gap-2 py-2 text-sm md:text-base font-medium" id="tab-nav">
+                    <li><button onclick="openTab('tujuan')" class="tab-btn px-4 py-2 rounded-full bg-white text-blue-600 shadow transition-colors whitespace-nowrap" data-target="tujuan">🎯 Tujuan</button></li>
+                    <li><button onclick="openTab('materi')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="materi">📚 Materi</button></li>
+                    <li><button onclick="openTab('contoh')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="contoh">🔍 Contoh</button></li>
+                    <li><button onclick="openTab('lkpd')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="lkpd">📝 LKPD</button></li>
+                    <li><button onclick="openTab('latihan')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="latihan">✍️ Latihan</button></li>
+                    <li><button onclick="openTab('aktivitas')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="aktivitas">🚀 Projek</button></li>
+                    <li><button onclick="openTab('asesmen')" class="tab-btn px-4 py-2 rounded-full hover:bg-white/20 transition-colors whitespace-nowrap" data-target="asesmen">📊 Asesmen</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow overflow-y-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden min-h-[60vh]">
+            
+            <section id="tujuan" class="tab-content active p-6 md:p-10">
+                <div class="text-center mb-8 stagger-item">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-2">Tujuan Pembelajaran</h2>
+                    <div class="h-1 w-20 bg-teal-500 mx-auto rounded"></div>
+                    <p class="mt-4 text-slate-600">Halo siswa kelas 7 hebat! Setelah mempelajari modul ini, kamu diharapkan mampu:</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start bg-blue-50 p-4 rounded-xl border border-blue-100 card-hover hover:scale-[1.02] transition-transform duration-300 stagger-item">
+                        <div class="bg-blue-500 text-white p-3 rounded-lg font-bold text-xl h-12 w-12 flex items-center justify-center shrink-0">1</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-blue-800">Menjelaskan Pengertian</h3>
+                            <p class="text-slate-600 mt-1">Menjelaskan pengertian dan jenis puisi rakyat melalui kegiatan membaca teks dan memirsa video pembelajaran.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start bg-teal-50 p-4 rounded-xl border border-teal-100 card-hover hover:scale-[1.02] transition-transform duration-300 stagger-item">
+                        <div class="bg-teal-500 text-white p-3 rounded-lg font-bold text-xl h-12 w-12 flex items-center justify-center shrink-0">2</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-teal-800">Mengidentifikasi Unsur</h3>
+                            <p class="text-slate-600 mt-1">Mengidentifikasi unsur dan ciri-ciri puisi rakyat meliputi jumlah bait, jumlah baris, jumlah suku kata, rima, serta bagian atau struktur pantun, gurindam dan mantra dengan tepat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start bg-purple-50 p-4 rounded-xl border border-purple-100 card-hover hover:scale-[1.02] transition-transform duration-300 stagger-item">
+                        <div class="bg-purple-500 text-white p-3 rounded-lg font-bold text-xl h-12 w-12 flex items-center justify-center shrink-0">3</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-purple-800">Membedakan Jenis</h3>
+                            <p class="text-slate-600 mt-1">Membedakan pantun, gurindam, dan mantra berdasarkan unsur dan ciri-ciri yang ditemukan dalam teks.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center stagger-item">
+                    <button onclick="openTab('materi')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors shadow-lg animate-pulse-soft">
+                        Mulai Belajar 🚀
+                    </button>
+                </div>
+            </section>
+
+            <section id="materi" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-100 pb-2 stagger-item">Materi Puisi Rakyat</h2>
+                
+                <div class="mb-8 stagger-item">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Apa itu Puisi Rakyat?</h3>
+                    <p class="text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-lg border-l-4 border-teal-500 hover:bg-slate-100 transition-colors">
+                        Puisi rakyat adalah karya sastra lama yang berkembang di tengah masyarakat dan diwariskan secara turun-temurun, umumnya secara lisan. Puisi rakyat memiliki aturan atau ciri tertentu dalam bentuk, jumlah baris, rima, dan penggunaan bahasa.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Pantun Card -->
+                    <div class="bg-white border-2 border-blue-200 rounded-xl overflow-hidden card-hover hover:-translate-y-2 transition-transform duration-300 stagger-item">
+                        <div class="bg-blue-100 p-3 text-center border-b-2 border-blue-200">
+                            <h4 class="font-bold text-blue-800 text-lg">PANTUN</h4>
+                        </div>
+                        <ul class="p-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+                            <li>1 bait terdiri dari 4 baris.</li>
+                            <li>Tiap baris 8-12 suku kata.</li>
+                            <li>Rima akhir <span class="font-bold text-blue-600">a-b-a-b</span>.</li>
+                            <li>Baris 1 & 2 = <span class="font-semibold">Sampiran</span>.</li>
+                            <li>Baris 3 & 4 = <span class="font-semibold">Isi</span>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gurindam Card -->
+                    <div class="bg-white border-2 border-teal-200 rounded-xl overflow-hidden card-hover hover:-translate-y-2 transition-transform duration-300 stagger-item">
+                        <div class="bg-teal-100 p-3 text-center border-b-2 border-teal-200">
+                            <h4 class="font-bold text-teal-800 text-lg">GURINDAM</h4>
+                        </div>
+                        <ul class="p-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+                            <li>1 bait terdiri dari 2 baris.</li>
+                            <li>Tiap baris 10-14 suku kata.</li>
+                            <li>Rima akhir sama <span class="font-bold text-teal-600">a-a</span>.</li>
+                            <li>Baris 1 = <span class="font-semibold">Syarat/Sebab</span>.</li>
+                            <li>Baris 2 = <span class="font-semibold">Jawaban/Akibat</span>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mantra Card -->
+                    <div class="bg-white border-2 border-purple-200 rounded-xl overflow-hidden card-hover hover:-translate-y-2 transition-transform duration-300 stagger-item">
+                        <div class="bg-purple-100 p-3 text-center border-b-2 border-purple-200">
+                            <h4 class="font-bold text-purple-800 text-lg">MANTRA</h4>
+                        </div>
+                        <ul class="p-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+                            <li>Rangkaian kata khas/magis.</li>
+                            <li>Bahasa berirama & repetitif.</li>
+                            <li>Tidak memiliki pola rima/baris yang mengikat tetap.</li>
+                            <li>Dianggap memiliki kekuatan gaib/tujuan tertentu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contoh" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-100 pb-2 stagger-item">Contoh dan Analisis</h2>
+                
+                <div class="mb-10 bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-2xl border border-indigo-100 shadow-sm stagger-item">
+                    <h3 class="text-2xl font-bold text-indigo-800 mb-4 flex items-center gap-2">
+                        <span class="bg-indigo-600 text-white p-2 rounded-lg text-lg animate-bounce">🎬</span> 
+                        Contoh Video Berbalas Pantun
+                    </h3>
+                    <p class="text-slate-700 mb-6 leading-relaxed">
+                        Sebelum melihat analisis teks, mari saksikan contoh penerapan puisi rakyat secara langsung. Video di bawah ini menampilkan tradisi <strong>Berbalas Pantun</strong> dengan tema Pendidikan. Perhatikan intonasi, rima (akhiran bunyi), dan gaya penyampaiannya!
+                    </p>
+                    
+                    <div class="relative w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-lg border-4 border-white bg-slate-900" style="padding-top: 56.25%;">
+                        <!-- Video iframe diperbarui untuk mengatasi Error 153 -->
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/v7uC11b8b-Y?si=UsgkVCSFrlUzIPS5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="mt-4 text-center text-sm text-indigo-600 italic">
+                        *Sumber Video: YouTube (Lomba Berbalas Pantun Pendidikan - SMAN 1 Asembagus)
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Contoh Pantun -->
+                    <div class="bg-blue-50 rounded-xl p-6 relative card-hover stagger-item">
+                        <span class="absolute -top-3 -left-3 bg-blue-600 text-white px-4 py-1 rounded-full font-bold shadow">1. PANTUN</span>
+                        <div class="flex flex-col md:flex-row gap-6 mt-4">
+                            <div class="md:w-1/2 bg-white p-4 rounded-lg shadow-inner text-center italic text-lg leading-loose border border-blue-200">
+                                <p>Pergi berburu ke dalam <span class="text-blue-600 font-bold underline">hutan</span>, (a)</p>
+                                <p>Dapat rusa belang <span class="text-red-500 font-bold underline">kaki</span>. (b)</p>
+                                <p>Berguru kepalang <span class="text-blue-600 font-bold underline">ajar</span>, (a)</p>
+                                <p>Bagai bunga kembang tak <span class="text-red-500 font-bold underline">jadi</span>. (b)</p>
+                            </div>
+                            <div class="md:w-1/2 text-sm">
+                                <h4 class="font-bold mb-2">Hasil Analisis:</h4>
+                                <ul class="space-y-1 text-slate-700">
+                                    <li><span class="inline-block w-24 font-semibold">Jumlah baris:</span> 4 baris</li>
+                                    <li><span class="inline-block w-24 font-semibold">Rima akhir:</span> a-b-a-b (hutan-kaki, ajar-jadi -> rima silang an-i-an-i)</li>
+                                    <li><span class="inline-block w-24 font-semibold">Sampiran:</span> Baris 1 & 2</li>
+                                    <li><span class="inline-block w-24 font-semibold">Isi (Pesan):</span> Baris 3 & 4 (Nasihat agar belajar sungguh-sungguh)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Gurindam -->
+                    <div class="bg-teal-50 rounded-xl p-6 relative card-hover stagger-item">
+                        <span class="absolute -top-3 -left-3 bg-teal-600 text-white px-4 py-1 rounded-full font-bold shadow">2. GURINDAM</span>
+                        <div class="flex flex-col md:flex-row gap-6 mt-4">
+                            <div class="md:w-1/2 bg-white p-4 rounded-lg shadow-inner text-center italic text-lg leading-loose border border-teal-200">
+                                <p>Barang siapa tiada memegang <span class="text-teal-600 font-bold underline">agama</span>, (a)</p>
+                                <p>Sekali-kali tiada boleh dibilangkan <span class="text-teal-600 font-bold underline">nama</span>. (a)</p>
+                            </div>
+                            <div class="md:w-1/2 text-sm">
+                                <h4 class="font-bold mb-2">Hasil Analisis:</h4>
+                                <ul class="space-y-1 text-slate-700">
+                                    <li><span class="inline-block w-24 font-semibold">Jumlah baris:</span> 2 baris</li>
+                                    <li><span class="inline-block w-24 font-semibold">Rima akhir:</span> a-a (agama-nama)</li>
+                                    <li><span class="inline-block w-24 font-semibold">Struktur:</span> Baris 1 (syarat), Baris 2 (akibat)</li>
+                                    <li><span class="inline-block w-24 font-semibold">Isi (Pesan):</span> Pentingnya beragama dalam kehidupan.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Mantra -->
+                    <div class="bg-purple-50 rounded-xl p-6 relative card-hover stagger-item">
+                        <span class="absolute -top-3 -left-3 bg-purple-600 text-white px-4 py-1 rounded-full font-bold shadow">3. MANTRA</span>
+                        <div class="flex flex-col md:flex-row gap-6 mt-4">
+                            <div class="md:w-1/2 bg-white p-4 rounded-lg shadow-inner text-center italic leading-relaxed border border-purple-200">
+                                <p>Sihir lontar pinang lontar,</p>
+                                <p>Terletak di ujung bumi,</p>
+                                <p>Setan buta jembalang buta,</p>
+                                <p>Aku sapa tidak berbunyi.</p>
+                            </div>
+                            <div class="md:w-1/2 text-sm">
+                                <h4 class="font-bold mb-2">Hasil Analisis:</h4>
+                                <ul class="space-y-1 text-slate-700">
+                                    <li><span class="inline-block w-24 font-semibold">Pola:</span> Tidak terikat aturan baku baris/rima.</li>
+                                    <li><span class="inline-block w-24 font-semibold">Bahasa:</span> Terdapat pengulangan kata (lontar, buta).</li>
+                                    <li><span class="inline-block w-24 font-semibold">Fungsi:</span> Dipercaya untuk menolak bala/keselamatan (tradisi lama).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lkpd" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-100 pb-2">Lembar Kerja Peserta Didik (LKPD)</h2>
+                
+                <form id="lkpd-form" class="space-y-6" onsubmit="kumpulkanLKPD(event)">
+                    <!-- Identitas Siswa -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-4 card-hover">
+                        <div class="flex-1">
+                            <label class="block font-semibold text-slate-800 mb-2">Nama Lengkap</label>
+                            <input type="text" name="namaSiswa" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan nama lengkapmu di sini..." required>
+                        </div>
+                        <div class="md:w-1/3">
+                            <label class="block font-semibold text-slate-800 mb-2">Kelas</label>
+                            <input type="text" name="kelasSiswa" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Contoh: VII A" required>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg shadow-sm">
+                        <h3 class="font-bold text-yellow-800 flex items-center gap-2 mb-1">
+                            <span class="text-xl">📌</span> Petunjuk Pengerjaan:
+                        </h3>
+                        <p class="text-yellow-700 text-sm md:text-base">Setelah membaca teks dan menyaksikan video pembelajaran pada menu Materi, jawablah pertanyaan berikut dengan jelas dan tepat!</p>
+                    </div>
+                    
+                    <!-- Soal 1 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">1. Apa yang dimaksud dengan puisi rakyat?</p>
+                        <textarea name="lkpd1" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+                    
+                    <!-- Soal 2 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">2. Sebutkan tiga jenis puisi rakyat!</p>
+                        <textarea name="lkpd2" rows="2" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+                    
+                    <!-- Soal 3 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">3. Apa ciri utama pantun?</p>
+                        <textarea name="lkpd3" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+                    
+                    <!-- Soal 4 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">4. Apa ciri utama gurindam?</p>
+                        <textarea name="lkpd4" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+                    
+                    <!-- Soal 5 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">5. Apa yang membedakan mantra dengan pantun dan gurindam?</p>
+                        <textarea name="lkpd5" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+                    
+                    <!-- Soal 6 -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-hover">
+                        <p class="font-semibold text-lg text-slate-800 mb-3">6. Mengapa puisi rakyat disebut sebagai bagian dari warisan budaya?</p>
+                        <textarea name="lkpd6" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none text-slate-700" placeholder="Tuliskan jawabanmu di sini..." required></textarea>
+                    </div>
+
+                    <!-- TUGAS 2 LKPD: TABEL ANALISIS -->
+                    <div class="mt-12 pt-8 border-t-2 border-dashed border-blue-200">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center gap-2">
+                            <span class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg shadow">2</span> 
+                            Tugas Analisis Teks
+                        </h3>
+
+                        <!-- Box Petunjuk ala Buku Catatan -->
+                        <div class="bg-white border-2 border-slate-300 rounded-xl mb-6 shadow-sm relative overflow-hidden">
+                            <div class="h-5 bg-slate-100 border-b border-slate-200 flex justify-around items-center px-2">
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                                <div class="w-2.5 h-2.5 bg-slate-400 rounded-full shadow-inner"></div>
+                            </div>
+                            <div class="p-5 bg-amber-50/30">
+                                <h4 class="font-bold text-green-700 text-lg mb-2">Petunjuk:</h4>
+                                <ol class="list-decimal list-inside space-y-2 text-slate-800 font-medium">
+                                    <li>Bacalah teks puisi rakyat di bawah ini dengan saksama.</li>
+                                    <li>Identifikasi unsur-unsurnya dengan teliti.</li>
+                                    <li>Isi tabel berikut berdasarkan hasil analisismu.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Teks Puisi Rakyat yang disajikan -->
+                        <div class="bg-[#fdf9e6] border border-[#e8d5a5] p-6 rounded-xl mb-8 shadow-inner relative">
+                            <div class="absolute -top-3 left-6 bg-[#f6b911] text-white px-4 py-1 rounded-full font-bold shadow-sm text-sm">
+                                Teks Puisi Rakyat
+                            </div>
+                            <div class="text-center text-slate-800 text-lg leading-loose space-y-6 mt-4 font-serif italic">
+                                <!-- Bait 1 -->
+                                <div>
+                                    <p>Jalan-jalan ke kota Blitar,</p>
+                                    <p>Jangan lupa membeli sukun.</p>
+                                    <p>Jika kamu ingin pintar,</p>
+                                    <p>Belajarlah dengan rajin dan tekun.</p>
+                                </div>
+                                <!-- Bait 2 -->
+                                <div>
+                                    <p>Pergi ke laut memancing ikan,</p>
+                                    <p>Ikan kecil melompat-lompat.</p>
+                                    <p>Nasihat guru tolong dengarkan,</p>
+                                    <p>Agar ilmu mudah didapat.</p>
+                                </div>
+                                <!-- Bait 3 -->
+                                <div>
+                                    <p>Pohon manggis di tepi rawa,</p>
+                                    <p>Tempat lebah hinggap menyengat.</p>
+                                    <p>Meski lelah badan dan jiwa,</p>
+                                    <p>Tuntutlah ilmu dengan semangat.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabel Analisis -->
+                        <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200">
+                            <table class="w-full text-left border-collapse min-w-[600px]">
+                                <thead>
+                                    <tr class="bg-[#1a3b68] text-white text-center">
+                                        <th class="p-3 w-16 border-r border-[#2a4e85]">No.</th>
+                                        <th class="p-3 w-1/3 border-r border-[#2a4e85]">Aspek yang Dianalisis</th>
+                                        <th class="p-3">Hasil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#8ec63f] text-white font-bold text-center text-xl">1</td>
+                                        <td class="bg-[#e4f0d0] p-3 font-semibold text-slate-800 border-r border-white">Jenis puisi</td>
+                                        <td class="bg-[#e4f0d0] p-2"><input type="text" name="hasil_jenis_puisi" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#8ec63f] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#f39221] text-white font-bold text-center text-xl">2</td>
+                                        <td class="bg-[#fcebda] p-3 font-semibold text-slate-800 border-r border-white">Jumlah bait</td>
+                                        <td class="bg-[#fcebda] p-2"><input type="text" name="hasil_jumlah_bait" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#f39221] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#2895d3] text-white font-bold text-center text-xl">3</td>
+                                        <td class="bg-[#dceef9] p-3 font-semibold text-slate-800 border-r border-white">Jumlah baris</td>
+                                        <td class="bg-[#dceef9] p-2"><input type="text" name="hasil_jumlah_baris" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#2895d3] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#8c52a0] text-white font-bold text-center text-xl">4</td>
+                                        <td class="bg-[#eedef2] p-3 font-semibold text-slate-800 border-r border-white">Jumlah suku kata</td>
+                                        <td class="bg-[#eedef2] p-2"><input type="text" name="hasil_jumlah_suku_kata" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#8c52a0] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#ee5e65] text-white font-bold text-center text-xl">5</td>
+                                        <td class="bg-[#fce4e6] p-3 font-semibold text-slate-800 border-r border-white">Pola rima</td>
+                                        <td class="bg-[#fce4e6] p-2"><input type="text" name="hasil_pola_rima" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#ee5e65] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#48b2a3] text-white font-bold text-center text-xl">6</td>
+                                        <td class="bg-[#def2ee] p-3 font-semibold text-slate-800 border-r border-white">Struktur</td>
+                                        <td class="bg-[#def2ee] p-2"><input type="text" name="hasil_struktur" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#48b2a3] outline-none text-slate-700" required></td>
+                                    </tr>
+                                    <tr class="border-b border-white">
+                                        <td class="bg-[#f6b911] text-white font-bold text-center text-xl">7</td>
+                                        <td class="bg-[#fdf2d0] p-3 font-semibold text-slate-800 border-r border-white">Isi/pesan</td>
+                                        <td class="bg-[#fdf2d0] p-2"><textarea name="hasil_isi" rows="2" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#f6b911] outline-none text-slate-700" required></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-[#477ab6] text-white font-bold text-center text-xl">8</td>
+                                        <td class="bg-[#e0ebf6] p-3 font-semibold text-slate-800 border-r border-white">Bukti yang ditemukan dalam teks</td>
+                                        <td class="bg-[#e0ebf6] p-2"><textarea name="hasil_bukti" rows="2" class="w-full p-2 rounded bg-white/80 focus:bg-white focus:ring-2 focus:ring-[#477ab6] outline-none text-slate-700" required></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-10">
+                        <button type="submit" id="btn-submit-lkpd" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors shadow-lg shadow-blue-200 flex items-center justify-center gap-2 mx-auto">
+                            <span>Kumpulkan LKPD</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="latihan" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-2">Latihan Uji Pemahaman</h2>
+                <p class="text-slate-600 mb-6">Pilihlah jawaban yang paling tepat berdasarkan materi yang telah kamu pelajari!</p>
+                
+                <form id="quiz-form" class="space-y-8" onsubmit="event.preventDefault(); cekLatihan();">
+                    
+                    <div class="mb-4 border-b pb-2">
+                        <h3 class="font-bold text-xl text-blue-700">A. Pilihan Ganda</h3>
+                        <p class="text-sm text-slate-600">Pilih satu jawaban yang paling tepat.</p>
+                    </div>
+
+                    <!-- Soal 1 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">1. Perhatikan kutipan berikut!<br><br>
+                        <i class="font-normal block mb-2">"Apabila kelakuan suka mencela,<br>Itulah tanda akal yang cela."</i><br>
+                        Berdasarkan strukturnya, kutipan di atas merupakan...</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q1" value="a" class="w-4 h-4 text-blue-600">
+                                <span>A. Pantun</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q1" value="b" class="w-4 h-4 text-blue-600">
+                                <span>B. Gurindam</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q1" value="c" class="w-4 h-4 text-blue-600">
+                                <span>C. Mantra</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q1" value="d" class="w-4 h-4 text-blue-600">
+                                <span>D. Syair</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">2. Rima akhir (sajak) yang umumnya digunakan dalam penulisan pantun adalah...</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q2" value="a" class="w-4 h-4 text-blue-600">
+                                <span>A. a-a-a-a</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q2" value="b" class="w-4 h-4 text-blue-600">
+                                <span>B. a-a-b-b</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q2" value="c" class="w-4 h-4 text-blue-600">
+                                <span>C. a-b-a-b</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q2" value="d" class="w-4 h-4 text-blue-600">
+                                <span>D. a-b-b-a</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">3. Perbedaan utama antara pantun dan gurindam terletak pada...</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q3" value="a" class="w-4 h-4 text-blue-600">
+                                <span>A. Pantun bersajak a-a, gurindam a-b-a-b</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q3" value="b" class="w-4 h-4 text-blue-600">
+                                <span>B. Pantun terdiri dari 4 baris, gurindam terdiri dari 2 baris sebait</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q3" value="c" class="w-4 h-4 text-blue-600">
+                                <span>C. Pantun berisi nasihat, gurindam berisi mantra gaib</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent hover:border-blue-200">
+                                <input type="radio" name="q3" value="d" class="w-4 h-4 text-blue-600">
+                                <span>D. Pantun tidak memiliki sampiran, gurindam memilikinya</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 mb-4 border-b pb-2">
+                        <h3 class="font-bold text-xl text-blue-700">B. Menjodohkan</h3>
+                        <p class="text-sm text-slate-600">Pilih jenis puisi rakyat yang sesuai dengan pernyataan di sebelah kiri.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <p class="font-medium text-slate-800 flex-1">1. Puisi yang rima akhirnya berpola a-b-a-b dan memiliki sampiran.</p>
+                            <select name="m1" class="border-2 border-slate-200 rounded-lg p-2 bg-slate-50 focus:border-blue-500 outline-none min-w-[150px] font-medium text-blue-700">
+                                <option value="">- Pilih Jawaban -</option>
+                                <option value="pantun">Pantun</option>
+                                <option value="gurindam">Gurindam</option>
+                                <option value="mantra">Mantra</option>
+                            </select>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <p class="font-medium text-slate-800 flex-1">2. Rangkaian kata yang memiliki ritme, seringkali tidak beraturan jumlah barisnya, dan dipercaya memiliki kekuatan magis.</p>
+                            <select name="m2" class="border-2 border-slate-200 rounded-lg p-2 bg-slate-50 focus:border-blue-500 outline-none min-w-[150px] font-medium text-blue-700">
+                                <option value="">- Pilih Jawaban -</option>
+                                <option value="pantun">Pantun</option>
+                                <option value="gurindam">Gurindam</option>
+                                <option value="mantra">Mantra</option>
+                            </select>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <p class="font-medium text-slate-800 flex-1">3. Puisi lama berupa dua baris dalam satu bait yang menunjukkan hubungan sebab-akibat (syarat dan jawaban).</p>
+                            <select name="m3" class="border-2 border-slate-200 rounded-lg p-2 bg-slate-50 focus:border-blue-500 outline-none min-w-[150px] font-medium text-blue-700">
+                                <option value="">- Pilih Jawaban -</option>
+                                <option value="pantun">Pantun</option>
+                                <option value="gurindam">Gurindam</option>
+                                <option value="mantra">Mantra</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 mb-4 border-b pb-2">
+                        <h3 class="font-bold text-xl text-blue-700">C. Pilihan Ganda Kompleks</h3>
+                        <p class="text-sm text-slate-600">Pilihlah <strong>lebih dari satu</strong> jawaban yang benar dengan mencentang kotak yang tersedia!</p>
+                    </div>
+
+                    <!-- Soal PG Kompleks 1 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">1. Manakah dari pernyataan di bawah ini yang merupakan ciri-ciri dari Pantun yang benar?</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c1" value="opt1" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Terdiri atas 4 baris dalam satu bait.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c1" value="opt2" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Semua barisnya berfungsi sebagai isi atau pesan.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c1" value="opt3" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Memiliki pola rima akhir a-b-a-b.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c1" value="opt4" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Baris 1 dan 2 disebut dengan sampiran.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Soal PG Kompleks 2 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">2. Perhatikan Gurindam berikut!<br><br>
+                        <i class="font-normal block text-slate-700 bg-slate-50 p-3 rounded border border-slate-100">"Barang siapa mengenal Allah,<br>Suruh dan tegahnya tiada ia menyalah."</i><br>
+                        Pernyataan yang <strong>benar</strong> terkait gurindam di atas adalah...</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c2" value="opt1" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Satu bait terdiri atas 2 baris.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c2" value="opt2" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Memiliki rima akhir a-a (Allah - menyalah).</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c2" value="opt3" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Baris pertama merupakan akibat dari baris kedua.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-slate-50 transition-colors border border-transparent">
+                                <input type="checkbox" name="c2" value="opt4" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 accent-blue-600">
+                                <span>Mengandung nilai-nilai agama / nasihat religi.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 mb-4 border-b pb-2">
+                        <h3 class="font-bold text-xl text-blue-700">D. Uraian</h3>
+                        <p class="text-sm text-slate-600">Bacalah kutipan puisi rakyat berikut dan jawablah pertanyaannya dengan jelas!</p>
+                    </div>
+
+                    <!-- Soal Uraian 1 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">1. Perhatikan pantun berikut!<br><br>
+                        <i class="font-normal block text-slate-700 bg-slate-50 p-3 rounded border border-slate-100">"Beli nampan di Pasar Rebo,<br>Jangan lupa membeli duku.<br>Jika kamu tak ingin bodoh,<br>Rajin-rajinlah membaca buku."</i><br>
+                        Identifikasilah pesan atau makna yang terkandung dalam isi pantun di atas!</p>
+                        <textarea name="u1" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none mt-2 text-slate-700" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                    </div>
+
+                    <!-- Soal Uraian 2 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">2. Perhatikan gurindam berikut!<br><br>
+                        <i class="font-normal block text-slate-700 bg-slate-50 p-3 rounded border border-slate-100">"Apabila anak tidak dilatih,<br>Jika besar bapanya letih."</i><br>
+                        Jelaskan maksud dari isi gurindam tersebut berkaitan dengan pendidikan anak!</p>
+                        <textarea name="u2" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none mt-2 text-slate-700" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                    </div>
+
+                    <!-- Soal Uraian 3 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                        <p class="font-semibold text-lg mb-3">3. Perhatikan kutipan mantra berikut!<br><br>
+                        <i class="font-normal block text-slate-700 bg-slate-50 p-3 rounded border border-slate-100">"Sirih kuning sirih putih,<br>Kunyit bersubang putih,<br>Turunlah bisa naiklah tawar."</i><br>
+                        Berdasarkan pilihan katanya, identifikasilah apa tujuan utama dari pengucapan mantra di atas!</p>
+                        <textarea name="u3" rows="3" class="w-full border-2 border-slate-200 rounded-lg p-3 focus:border-blue-500 outline-none mt-2 text-slate-700" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors shadow-lg shadow-teal-200">
+                            Cek Jawaban Saya ✔️
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="aktivitas" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-100 pb-2">Projek Berkarya: Berbalas Pantun</h2>
+                
+                <div class="bg-orange-50 border border-orange-200 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-orange-800 mb-3 flex items-center gap-2">
+                        <span>🎬</span> Skenario Aktivitas
+                    </h3>
+                    <p class="text-slate-700 mb-4">
+                        Mari lestarikan budaya bangsa! Dalam projek ini, kalian akan bekerja secara berkelompok untuk membuat dan menampilkan tradisi "Berbalas Pantun".
+                    </p>
+                    
+                    <h4 class="font-bold text-slate-800 mb-2">Langkah Kerja:</h4>
+                    <ol class="list-decimal list-inside space-y-3 text-slate-700 mb-6">
+                        <li>Bentuklah kelompok yang terdiri atas 4 orang.</li>
+                        <li>Tentukan tema pantun kalian (Misal: Pendidikan, Nasihat agama, atau Persahabatan).</li>
+                        <li>Buatlah minimal 4 bait pantun yang saling berkaitan (berbalasan antar anggota kelompok).</li>
+                        <li>Pastikan pantun kalian memenuhi syarat: 4 baris, rima a-b-a-b, dan 8-12 suku kata per baris.</li>
+                        <li>Berlatihlah membacakan pantun tersebut dengan intonasi, ekspresi, dan gaya yang menarik.</li>
+                        <li>Tampilkan hasil karya berbalas pantun kalian di depan kelas!</li>
+                    </ol>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-orange-100 text-sm">
+                        <p class="font-semibold text-orange-600">💡 Tips Sukses:</p>
+                        <p class="text-slate-600 mt-1">Gunakan kata-kata yang mudah dipahami namun indah. Jangan lupa gunakan "Cakep!" sebagai respon dari audiens saat bait sampiran dibacakan!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="asesmen" class="tab-content p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-100 pb-2">Asesmen & Refleksi</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-lg text-blue-800 mb-3">Rubrik Penilaian Projek (Untuk Guru)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left border-collapse bg-white">
+                                <thead>
+                                    <tr class="bg-blue-100 text-blue-900 border border-blue-200">
+                                        <th class="p-3 border border-blue-200">Aspek yang Dinilai</th>
+                                        <th class="p-3 border border-blue-200 text-center">Poin Maksimal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-blue-100 hover:bg-slate-50">
+                                        <td class="p-3 border-r border-blue-100">Kesesuaian struktur teks (baris, bait, rima, suku kata)</td>
+                                        <td class="p-3 text-center font-semibold">40</td>
+                                    </tr>
+                                    <tr class="border-b border-blue-100 hover:bg-slate-50">
+                                        <td class="p-3 border-r border-blue-100">Kesesuaian isi pantun dengan tema</td>
+                                        <td class="p-3 text-center font-semibold">30</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 border-r border-blue-100">Penampilan (ekspresi, intonasi, volume suara, kekompakan)</td>
+                                        <td class="p-3 text-center font-semibold">30</td>
+                                    </tr>
+                                    <tr class="bg-blue-50 font-bold">
+                                        <td class="p-3 border border-blue-200 text-right">TOTAL</td>
+                                        <td class="p-3 text-center border border-blue-200 text-blue-700">100</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-white shadow border border-slate-200 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg text-slate-800 mb-4">Refleksi Diri Siswa</h3>
+                        <p class="text-sm text-slate-600 mb-4">Setelah menyelesaikan materi ini, berikan penilaian terhadap pemahamanmu:</p>
+                        
+                        <div class="space-y-4">
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded text-teal-600 accent-teal-600">
+                                <span>Saya dapat membedakan mana pantun, gurindam, dan mantra.</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded text-teal-600 accent-teal-600">
+                                <span>Saya memahami aturan penulisan rima, baris, dan suku kata pada pantun.</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded text-teal-600 accent-teal-600">
+                                <span>Saya bisa menemukan sampiran dan isi dalam teks puisi rakyat.</span>
+                            </label>
+                        </div>
+                        <div class="mt-4 p-4 bg-yellow-50 text-yellow-800 rounded-lg text-sm italic">
+                            Jika belum semua tercentang, jangan ragu untuk kembali ke menu <strong>Materi</strong> atau bertanya kepada guru ya!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Modal Backdrop -->
+    <div id="custom-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity">
+        <!-- Modal Content -->
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full mx-4 transform scale-95 transition-transform" id="modal-box">
+            <div class="text-center">
+                <div id="modal-icon" class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                    <!-- Icon disisipkan lewat JS -->
+                </div>
+                <h3 id="modal-title" class="text-xl font-bold text-slate-800 mb-2">Judul Modal</h3>
+                <p id="modal-message" class="text-slate-600 mb-6">Pesan modal disini.</p>
+                <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi Navigasi Tab
+        function openTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-blue-600', 'shadow');
+                btn.classList.add('hover:bg-white/20', 'text-white');
+            });
+
+            const targetTab = document.getElementById(tabId);
+            targetTab.classList.add('active');
+            
+            // Logika untuk mereset dan memicu ulang animasi bertahap (stagger)
+            const staggerElements = targetTab.querySelectorAll('.stagger-item');
+            staggerElements.forEach((el, index) => {
+                el.classList.remove('animate-stagger');
+                void el.offsetWidth; // Memicu reflow browser agar animasi tereset
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.classList.add('animate-stagger');
+            });
+            
+            const activeBtn = document.querySelector(`[data-target="${tabId}"]`);
+            if(activeBtn) {
+                activeBtn.classList.remove('hover:bg-white/20', 'text-white');
+                activeBtn.classList.add('bg-white', 'text-blue-600', 'shadow');
+            }
+        }
+
+        // Inisialisasi animasi pada tab pertama (Tujuan) saat halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialTab = document.getElementById('tujuan');
+            if (initialTab) {
+                const staggerElements = initialTab.querySelectorAll('.stagger-item');
+                staggerElements.forEach((el, index) => {
+                    el.style.animationDelay = `${index * 0.1}s`;
+                    el.classList.add('animate-stagger');
+                });
+            }
+        });
+
+        // Kunci Jawaban Latihan
+        const answers = {
+            q1: 'b', 
+            q2: 'c', 
+            q3: 'b', 
+            m1: 'pantun',
+            m2: 'mantra',
+            m3: 'gurindam',
+            c1: ['opt1', 'opt3', 'opt4'],
+            c2: ['opt1', 'opt2', 'opt4']
+        };
+
+        // Fungsi Cek Latihan
+        function cekLatihan() {
+            const form = document.getElementById('quiz-form');
+            
+            const q1 = form.q1.value;
+            const q2 = form.q2.value;
+            const q3 = form.q3.value;
+
+            const m1 = form.m1.value;
+            const m2 = form.m2.value;
+            const m3 = form.m3.value;
+
+            const getCheckedValues = (name) => {
+                return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
+            };
+            
+            const c1 = getCheckedValues('c1');
+            const c2 = getCheckedValues('c2');
+
+            const u1 = form.u1.value.trim();
+            const u2 = form.u2.value.trim();
+            const u3 = form.u3.value.trim();
+
+            if (!q1 || !q2 || !q3 || !m1 || !m2 || !m3 || c1.length === 0 || c2.length === 0 || !u1 || !u2 || !u3) {
+                showModal("Oops!", "Harap lengkapi semua jawaban termasuk isian soal uraian! Pastikan kamu juga mencentang minimal 1 pilihan pada tiap soal Pilihan Ganda Kompleks ya, Sobat Cerdas!", false);
+                return;
+            }
+
+            let score = 0;
+            const total = 8; 
+
+            if (q1 === answers.q1) score++;
+            if (q2 === answers.q2) score++;
+            if (q3 === answers.q3) score++;
+
+            if (m1 === answers.m1) score++;
+            if (m2 === answers.m2) score++;
+            if (m3 === answers.m3) score++;
+
+            const isArrayEqual = (arr1, arr2) => {
+                if (arr1.length !== arr2.length) return false;
+                return arr1.every(val => arr2.includes(val));
+            };
+
+            if (isArrayEqual(c1, answers.c1)) score++;
+            if (isArrayEqual(c2, answers.c2)) score++;
+            
+            if (score === total) {
+                showModal("Luar Biasa! 🌟", "Kamu menjawab SEMUA pertanyaan objektif dengan BENAR (Nilai: 100). Jawaban uraianmu telah disimpan dan akan dinilai oleh guru. Pemahamanmu tentang Puisi Rakyat sangat mantap!", true);
+            } else if (score > 0) {
+                const nilai = Math.round((score/total) * 100);
+                showModal("Bagus! 👍", `Kamu berhasil menjawab ${score} dari ${total} soal objektif dengan tepat (Nilai: ${nilai}). Jawaban uraianmu telah direkam untuk dinilai guru. Yuk baca materi lagi untuk menyempurnakan jawabanmu!`, true);
+            } else {
+                showModal("Jangan Menyerah! 💪", "Belum ada jawaban objektif yang tepat. Jawaban uraianmu sudah disubmit. Mari kita pelajari kembali menu Materi dan Contoh. Semangat!", false);
+            }
+        }
+
+        // Fungsi Tampilkan Modal
+        function showModal(title, message, isSuccess) {
+            const modal = document.getElementById('custom-modal');
+            const modalBox = document.getElementById('modal-box');
+            const titleEl = document.getElementById('modal-title');
+            const messageEl = document.getElementById('modal-message');
+            const iconEl = document.getElementById('modal-icon');
+
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+
+            if (isSuccess) {
+                iconEl.className = "mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-4";
+                iconEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else {
+                iconEl.className = "mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-orange-100 text-orange-600 mb-4";
+                iconEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                modalBox.classList.remove('scale-95');
+                modalBox.classList.add('scale-100');
+            }, 10);
+        }
+
+        // Fungsi Tutup Modal
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            const modalBox = document.getElementById('modal-box');
+            
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        //        
+        // URL Web App Google Apps Script 
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxn4izpV74-3prfH9HldOhe64vPtidCf7QD0YIGyJiH6hoMizE7A9-eL3AOcbY3UgqM/exec';
+
+        // Fungsi Kumpulkan LKPD
+        function kumpulkanLKPD(e) {
+            e.preventDefault();
+
+            if(scriptURL === 'PASTE_URL_WEB_APP_ANDA_DI_SINI' || scriptURL === 'MASUKKAN_URL_WEB_APP_APPS_SCRIPT_DISINI') {
+                showModal("Perhatian! ⚠️", "Sistem belum terhubung dengan Google Sheet. Harap masukkan URL Web App Apps Script terlebih dahulu ke dalam kode.", false);
+                return;
+            }
+
+            const form = document.getElementById('lkpd-form');
+            const btnSubmit = document.getElementById('btn-submit-lkpd');
+            const originalBtnContent = btnSubmit.innerHTML;
+            
+            // Ubah tombol jadi status loading
+            btnSubmit.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Mengirim...</span>
+            `;
+            btnSubmit.disabled = true;
+
+            // Mengambil semua data form
+            const formData = new FormData(form);
+
+            // Mengirim data ke Google Apps Script
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    const nama = form.namaSiswa.value;
+                    showModal("LKPD Terkirim! 📝", `Jawaban LKPD atas nama ${nama} telah berhasil direkap ke Google Sheet. Terima kasih!`, true);
+                    form.reset();
+                    btnSubmit.innerHTML = originalBtnContent;
+                    btnSubmit.disabled = false;
+                })
+                .catch(error => {
+                    showModal("Koneksi Gagal 🔌", "Terjadi kesalahan saat mengirim data. Pastikan koneksi internetmu lancar dan coba lagi.", false);
+                    btnSubmit.innerHTML = originalBtnContent;
+                    btnSubmit.disabled = false;
+                });
+        }
+    </script>
+</body>
+</html>
